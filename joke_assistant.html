@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joke Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #fafafa;
+            text-align: center;
+            padding: 20px;
+        }
+        #chatbox {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            background-color: #003264;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+        #chatlogs {
+            background-color: #fafafa;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #ddd;
+        }
+        #userInput {
+            width: 60%;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            width: 30%;
+            padding: 10px;
+            background-color: #aa1f1d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #971817;
+        }
+        .assistant-message {
+            text-align: left;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        .assistant-message strong {
+            color: #003264;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbox">
+        <h2>Liberal Joke Generator</h2>
+        <div id="chatlogs"></div>
+        <input type="text" id="userInput" placeholder="Enter a topic for your liberal joke">
+        <button onclick="getJoke()">Get Joke</button>
+    </div>
+
+    <script>
+        function getJoke() {
+            var userInput = document.getElementById("userInput").value;
+            fetch('http://127.0.0.1:5000/get-joke', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userInput: userInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var message = "<div class='assistant-message'><strong>Topic:</strong> " + userInput + "<br><strong>Joke:</strong> " + data.joke + "</div>";
+                document.getElementById("chatlogs").innerHTML += message;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
