@@ -71,7 +71,7 @@
     <script>
         function getJoke() {
             var userInput = document.getElementById("userInput").value;
-            fetch('https://your-app-name.herokuapp.com/joke-assistant', {
+            fetch('https://joke-assistant.herokuapp.com/get-joke', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
