@@ -71,6 +71,12 @@ body {
     /* Add a border */
     margin-bottom: 10px;
     /* Space below the chatlogs area */
+    max-height: 300px;
+     /* Adjust the height as needed */
+    overflow-y: auto; 
+    /* Show scrollbar when needed */
+}
+
 }
 /* Styling for #userInput and buttons */
 #userInput, button {
@@ -87,6 +93,8 @@ body {
 #userInput {
     margin-bottom: 15px;
     /* Add margin at the bottom */
+    font-size: 16px; 
+    /* Minimum size to prevent zooming on mobile */
 }
 /* Styling for buttons */
 button {
