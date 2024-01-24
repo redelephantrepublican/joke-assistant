@@ -2,146 +2,174 @@
 <html>
 
 <head>
-
-<title>Liberal Joke Generator</title>
-
-<style>body {
-     font-family: Arial, sans-serif;
-    /* Sets the default font family for the page */
-     background-color: #f4f4f4;
-    /* Light grey background color for the entire page */
-     color: #333333;
-    /* Default text color set to dark grey for readability */
-     text-align: center;
-    /* Centers text horizontally within the body */
-     padding: 20px;
-    /* Adds space around the content inside the body */
-}
- #chatbox {
-     max-width: 350px;
-    /* Fixed width of the chatbox */
-     width: 100%;
-    /* 100% width of the chatbox */
-     height: 350px;
-    /* Fixed height of the chatbox */
-     margin: auto;
-    /* Centers the chatbox horizontally on the page */
-     background-color: #003264;
-    /* Dark blue background color for the chatbox */
-     padding: 20px;
-    /* Space inside the chatbox between content and its borders */
-     border-radius: 15px;
-    /* Rounded corners of the chatbox */
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow around the chatbox */
-     border: 1px solid #ddd;
-    /* Thin grey border around the chatbox */
-     display: flex;
-    /* Enables flexbox layout inside the chatbox */
-     flex-direction: column;
-    /* Aligns children elements (like divs) in a column */
-     justify-content: space-between;
-    /* Distributes space evenly between child elements */
-}
- #chatbox h2 {
-     color: #fafafa;
-    /* Color of the title inside the chatbox */
-}
- #chatlogs {
-     background-color: #fafafa;
-    /* White background for the chatlogs area */
-     margin-bottom: 10px;
-    /* Space below the chatlogs area */
-     padding: 10px;
-    /* Internal spacing within the chatlogs area */
-     border-radius: 10px;
-    /* Rounded corners for chatlogs */
-     flex-grow: 1;
-    /* Allows chatlogs to expand and fill available vertical space */
-     overflow: auto;
-    /* Enables scrolling for overflow content */
-     border: 1px solid #ddd;
-    /* Thin border around chatlogs for definition */
-}
- #userInput {
-     width: calc(100% - 20px);
-    /* Width adjusted to account for padding */
-     padding: 10px;
-    /* Padding inside the input field */
-     border-radius: 5px;
-    /* Rounded corners for the input field */
-     border: 1px solid #ddd;
-    /* Thin border around the input field */
-     margin-bottom: 15px;
-    /* Space below the input field */
-}
- button {
-     width: calc(100% - 20px);
-    /* Width adjusted to match the userInput width */
-     padding: 10px;
-    /* Padding inside the button for better appearance */
-     margin: 0 auto;
-    /* Centers the button horizontally */
-     background-color: #aa1f1d;
-    /* Reddish background color for the button */
-     color: white;
-    /* White text color for the button */
-     border: none;
-    /* Removes the default border of the button */
-     border-radius: 5px;
-    /* Rounded corners for the button */
-     cursor: pointer;
-    /* Changes the cursor to a pointer when hovering over the button */
-     font-size: 1em;
-    /* Sets the font size of the button text */
-     display: block;
-    /* Ensures the button is a block-level element for margin auto to work */
-}
- button:hover {
-     background-color: #971817;
-    /* Darker shade of red on hover for the button */
-}
- .assistant-message {
-     text-align: left;
-    /* Aligns the text of the message to the left */
-     color: #333333;
-    /* Sets the text color of the message */
-     margin-bottom: 15px;
-    /* Space below each assistant message */
-}
- .assistant-message strong {
-     color: #003264;
-    /* Color for strong (bold) elements within the message */
-     font-weight: bold;
-    /* Makes text bold within strong tags */
-}
- .space-between {
-     margin-bottom: 5px;
-    /* Adds space below elements with this class */
-}
-@media (max-width: 380px) {
-    #chatbox {
-        padding: 10px;
-        height: 450px; /* Let the height be dynamic on very small screens */
-    }
+    <title>Liberal Joke Generator</title>
+    <style>
+    /* Styling for the <body> element */
     
-    /* Adjust padding or font sizes as needed for smaller screens */
-    button, #userInput {
-        padding: 5px;
+    body {
+        font-family: Arial, sans-serif;
+        /* Set the font family */
+        background-color: #f4f4f4;
+        /* Set the background color */
+        color: #333333;
+        /* Set the text color */
+        text-align: center;
+        /* Center-align the text */
+        padding: 20px;
+        /* Add padding around the content */
+        margin: 0;
+        /* Ensure there's no default margin */
+        overflow-x: hidden;
+        /* Prevents horizontal scrolling */
     }
-</style>
+    /* Styling for the #chatbox element */
+    
+    #chatbox {
+        max-width: 350px;
+        /* Set the maximum width */
+        width: 100%;
+        /* Set the width to 100% */
+        min-height: 400px;
+        /* Minimum height to see multiple responses */
+        margin: 0 auto;
+        /* Center in the available space */
+        background-color: #003264;
+        /* Set the background color */
+        padding: 20px;
+        /* Add padding around the content */
+        border-radius: 15px;
+        /* Add rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Add box shadow */
+        border: 1px solid #ddd;
+        /* Add a border */
+        display: flex;
+        /* Use flexbox layout */
+        flex-direction: column;
+        /* Arrange items in a column */
+        justify-content: space-between;
+        /* Space between items */
+        overflow-y: auto;
+        /* Allows vertical scrolling when needed */
+    }
+    /* Styling for the <h2> element within #chatbox */
+    
+    #chatbox h2 {
+        color: #fafafa;
+        /* Set the text color */
+        margin: 0 0 10px 0;
+        /* Added margin to the title for spacing */
+    }
+    /* Styling for the #chatlogs element */
+    
+    #chatlogs {
+        background-color: #fafafa;
+        /* Set the background color */
+        padding: 10px;
+        /* Add padding around the content */
+        border-radius: 10px;
+        /* Add rounded corners */
+        flex-grow: 1;
+        /* Allow flexible growth */
+        overflow-y: auto;
+        /* Only vertical scroll */
+        border: 1px solid #ddd;
+        /* Add a border */
+        margin-bottom: 10px;
+        /* Space below the chatlogs area */
+    }
+    /* Styling for #userInput and buttons */
+    
+    #userInput,
+    button {
+        width: calc(100% - 20px);
+        /* Calculate width with 20px margin */
+        padding: 10px;
+        /* Add padding */
+        border-radius: 5px;
+        /* Add rounded corners */
+        border: 1px solid #ddd;
+        /* Add a border */
+    }
+    /* Styling for #userInput */
+    
+    #userInput {
+        margin-bottom: 15px;
+        /* Add margin at the bottom */
+    }
+    /* Styling for buttons */
+    
+    button {
+        background-color: #aa1f1d;
+        /* Set background color */
+        color: white;
+        /* Set text color */
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        /* Set cursor to pointer */
+        font-size: 1em;
+        /* Set font size */
+        display: block;
+        /* Display as a block element */
+        margin: 0 auto 15px auto;
+        /* Added margin to the button for spacing */
+    }
+    /* Hover effect for buttons */
+    
+    button:hover {
+        background-color: #971817;
+        /* Change background color on hover */
+    }
+    /* Styling for .assistant-message */
+    
+    .assistant-message {
+        text-align: left;
+        /* Align text to the left */
+        color: #333333;
+        /* Set text color */
+        margin-bottom: 15px;
+        /* Space between messages */
+    }
+    /* Styling for strong elements within .assistant-message */
+    
+    .assistant-message strong {
+        color: #003264;
+        /* Set text color */
+        font-weight: bold;
+        /* Set font weight to bold */
+    }
+    /* Media query for smaller screens (max-width: 450px) */
+    
+    @media (max-width: 450px) {
+        body,
+        #chatbox {
+            padding: 10px;
+            /* Reduce padding on smaller screens */
+        }
+        #chatbox {
+            width: 90%;
+            /* Take up most of the column width */
+            min-height: 300px;
+            /* Adjust height for smaller devices */
+        }
+        #userInput,
+        button {
+            width: calc(100% - 20px);
+            /* Adjust width on smaller screens */
+        }
+    }
+    </style>
 </head>
 
 <body>
-
-<div id="chatbox">
-    <h2>Liberal Joke Generator</h2>
-    <div id="chatlogs"></div>
-    <input type="text" id="userInput" placeholder="Enter a topic for your liberal joke">
-    <button onclick="getJoke()">Get Joke</button>
-</div>
-
-<script>
+    <div id="chatbox">
+        <h2>Liberal Joke Generator</h2>
+        <div id="chatlogs"></div>
+        <input type="text" id="userInput" placeholder="Enter a topic for your liberal joke">
+        <button onclick="getJoke()">Get Joke</button>
+    </div>
+    <script>
     function getJoke() {
         var userInput = document.getElementById("userInput").value;
         fetch('https://joke-assistant-3ae8d04a836e.herokuapp.com/get-joke', {
@@ -149,19 +177,17 @@
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ userInput: userInput }),
-        })
-        .then(response => response.json())
-        .then(data => {
+            body: JSON.stringify({
+                userInput: userInput
+            }),
+        }).then(response => response.json()).then(data => {
             var message = "<div class='assistant-message'><strong>Topic:</strong> " + userInput + "<br><strong>Joke:</strong> " + data.joke + "</div>";
             document.getElementById("chatlogs").innerHTML += message;
-        })
-        .catch((error) => {
+        }).catch((error) => {
             console.error('Error:', error);
         });
     }
-</script>
-
+    </script>
 </body>
 
 </html>
