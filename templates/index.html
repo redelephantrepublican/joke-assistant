@@ -3,163 +3,150 @@
 
 <head>
     <title>Liberal Joke Generator</title>
-    <style>
-    /* Styling for the <body> element */
-    
-    body {
-        font-family: Arial, sans-serif;
-        /* Set the font family */
-        background-color: #f4f4f4;
-        /* Set the background color */
-        color: #333333;
-        /* Set the text color */
-        text-align: center;
-        /* Center-align the text */
-        padding: 20px;
-        /* Add padding around the content */
-        margin: 0;
-        /* Ensure there's no default margin */
-        overflow-x: hidden;
-        /* Prevents horizontal scrolling */
+
+<style>/* Styling for the <body> element */
+body {
+    font-family: Arial, sans-serif;
+    /* Set the font family */
+    background-color: #f4f4f4;
+    /* Set the background color */
+    color: #333333;
+    /* Set the text color */
+    text-align: center;
+    /* Center-align the text */
+    padding: 20px;
+    /* Add padding around the content */
+    margin: 0;
+    /* Ensure there's no default margin */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+}
+/* Styling for the #chatbox element */
+#chatbox {
+    max-width: 350px;
+    /* Set the maximum width */
+    width: 80%;
+    /* Set the width to 80% to prevent horizontal scrolling */
+    min-height: 400px;
+    /* Minimum height to see multiple responses */
+    margin: 0 auto;
+    /* Center in the available space */
+    background-color: #003264;
+    /* Set the background color */
+    padding: 20px;
+    /* Add padding around the content */
+    border-radius: 15px;
+    /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add box shadow */
+    border: 1px solid #ddd;
+    /* Add a border */
+    display: flex;
+    /* Use flexbox layout */
+    flex-direction: column;
+    /* Arrange items in a column */
+    justify-content: space-between;
+    /* Space between items */
+    overflow-y: auto;
+    /* Allows vertical scrolling when needed */
+}
+/* Styling for the <h2> element within #chatbox */
+#chatbox h2 {
+    color: #fafafa;
+    /* Set the text color */
+    margin: 0 0 10px 0;
+    /* Added margin to the title for spacing */
+}
+/* Styling for the #chatlogs element */
+#chatlogs {
+    background-color: #fafafa;
+    /* Set the background color */
+    padding: 10px;
+    /* Add padding around the content */
+    border-radius: 10px;
+    /* Add rounded corners */
+    flex-grow: 1;
+    /* Allow flexible growth */
+    overflow-y: auto;
+    /* Only vertical scroll */
+    border: 1px solid #ddd;
+    /* Add a border */
+    margin-bottom: 10px;
+    /* Space below the chatlogs area */
+}
+/* Styling for #userInput and buttons */
+#userInput, button {
+    width: calc(100% - 20px);
+    /* Calculate width with 20px margin */
+    padding: 10px;
+    /* Add padding */
+    border-radius: 5px;
+    /* Add rounded corners */
+    border: 1px solid #ddd;
+    /* Add a border */
+}
+/* Styling for #userInput */
+#userInput {
+    margin-bottom: 15px;
+    /* Add margin at the bottom */
+}
+/* Styling for buttons */
+button {
+    background-color: #aa1f1d;
+    /* Set background color */
+    color: white;
+    /* Set text color */
+    border: none;
+    /* Remove border */
+    cursor: pointer;
+    /* Set cursor to pointer */
+    font-size: 1em;
+    /* Set font size */
+    display: block;
+    /* Display as a block element */
+    margin: 0 auto 15px auto;
+    /* Added margin to the button for spacing */
+}
+/* Hover effect for buttons */
+button:hover {
+    background-color: #971817;
+    /* Change background color on hover */
+}
+/* Styling for .assistant-message */
+.assistant-message {
+    text-align: left;
+    /* Align text to the left */
+    color: #333333;
+    /* Set text color */
+    margin-bottom: 15px;
+    /* Space between messages */
+}
+/* Styling for strong elements within .assistant-message */
+.assistant-message strong {
+    color: #003264;
+    /* Set text color */
+    font-weight: bold;
+    /* Set font weight to bold */
+}
+/* Media query for smaller screens (max-width: 350px) */
+@media (max-width: 350px) {
+    body, #chatbox {
+        padding: 10px;
+        /* Reduce padding on smaller screens */
     }
-    /* Styling for the #chatbox element */
-    
     #chatbox {
-        max-width: 350px;
-        /* Set the maximum width */
         width: 80%;
-        /* Set the width to 100% */
-        min-height: 400px;
-        /* Minimum height to see multiple responses */
-        margin: 0 auto;
-        /* Center in the available space */
-        background-color: #003264;
-        /* Set the background color */
-        padding: 20px;
-        /* Add padding around the content */
-        border-radius: 15px;
-        /* Add rounded corners */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* Add box shadow */
-        border: 1px solid #ddd;
-        /* Add a border */
-        display: flex;
-        /* Use flexbox layout */
-        flex-direction: column;
-        /* Arrange items in a column */
-        justify-content: space-between;
-        /* Space between items */
-        overflow-y: auto;
-        /* Allows vertical scrolling when needed */
+        /* Take up most of the column width */
+        min-height: 300px;
+        /* Adjust height for smaller devices */
     }
-    /* Styling for the <h2> element within #chatbox */
-    
-    #chatbox h2 {
-        color: #fafafa;
-        /* Set the text color */
-        margin: 0 0 10px 0;
-        /* Added margin to the title for spacing */
-    }
-    /* Styling for the #chatlogs element */
-    
-    #chatlogs {
-        background-color: #fafafa;
-        /* Set the background color */
-        padding: 10px;
-        /* Add padding around the content */
-        border-radius: 10px;
-        /* Add rounded corners */
-        flex-grow: 1;
-        /* Allow flexible growth */
-        overflow-y: auto;
-        /* Only vertical scroll */
-        border: 1px solid #ddd;
-        /* Add a border */
-        margin-bottom: 10px;
-        /* Space below the chatlogs area */
-    }
-    /* Styling for #userInput and buttons */
-    
-    #userInput,
-    button {
+    #userInput, button {
         width: calc(100% - 20px);
-        /* Calculate width with 20px margin */
-        padding: 10px;
-        /* Add padding */
-        border-radius: 5px;
-        /* Add rounded corners */
-        border: 1px solid #ddd;
-        /* Add a border */
+        /* Adjust width on smaller screens */
     }
-    /* Styling for #userInput */
-    
-    #userInput {
-        margin-bottom: 15px;
-        /* Add margin at the bottom */
-    }
-    /* Styling for buttons */
-    
-    button {
-        background-color: #aa1f1d;
-        /* Set background color */
-        color: white;
-        /* Set text color */
-        border: none;
-        /* Remove border */
-        cursor: pointer;
-        /* Set cursor to pointer */
-        font-size: 1em;
-        /* Set font size */
-        display: block;
-        /* Display as a block element */
-        margin: 0 auto 15px auto;
-        /* Added margin to the button for spacing */
-    }
-    /* Hover effect for buttons */
-    
-    button:hover {
-        background-color: #971817;
-        /* Change background color on hover */
-    }
-    /* Styling for .assistant-message */
-    
-    .assistant-message {
-        text-align: left;
-        /* Align text to the left */
-        color: #333333;
-        /* Set text color */
-        margin-bottom: 15px;
-        /* Space between messages */
-    }
-    /* Styling for strong elements within .assistant-message */
-    
-    .assistant-message strong {
-        color: #003264;
-        /* Set text color */
-        font-weight: bold;
-        /* Set font weight to bold */
-    }
-    /* Media query for smaller screens (max-width: 450px) */
-    
-    @media (max-width: 450px) {
-        body,
-        #chatbox {
-            padding: 10px;
-            /* Reduce padding on smaller screens */
-        }
-        #chatbox {
-            width: 80%;
-            /* Take up most of the column width */
-            min-height: 300px;
-            /* Adjust height for smaller devices */
-        }
-        #userInput,
-        button {
-            width: calc(100% - 20px);
-            /* Adjust width on smaller screens */
-        }
-    }
-    </style>
+}
+</style>
+
 </head>
 
 <body>
