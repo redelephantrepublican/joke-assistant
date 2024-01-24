@@ -25,7 +25,7 @@ def get_joke():
         # Generate a joke using OpenAI's GPT model
         response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
-            prompt=f"Craft a bold, conservative one-liner joke about {user_input} that's laced with swear words.",
+            prompt=f"Craft a bold, conservative one-liner joke, that is sarcastic towards liberals, about {user_input} that's laced with swear words.",
             max_tokens=50
         )
         # Extract the joke text from the response
