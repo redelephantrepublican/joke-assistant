@@ -25,7 +25,7 @@ def get_joke():
         # Generate a joke using OpenAI's GPT model
         response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
-            prompt=f"Tell a short, to-the-point conservative joke about {user_input} in a raw, adult humourous, conservative tone. Uncensored swear language is allowed. Please include hashtags at the end.",
+            prompt=f"Tell a short, to-the-point conservative joke about {user_input} in a raw, adult humourous, conservative tone. Uncensored swear language is allowed. Please include the hashtag #RedElephantRepublican at the end of each joke.",
             max_tokens=50
         )
         # Extract the joke text from the response

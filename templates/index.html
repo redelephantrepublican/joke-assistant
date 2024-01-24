@@ -6,54 +6,63 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            color: #fafafa;
+            color: #333333; /* Changed from #fafafa for better visibility */
             text-align: center;
             padding: 20px;
         }
         #chatbox {
-            width: 80%;
-            max-width: 600px;
+            width: 350px; /* Set width to 350px */
+            height: 350px; /* Set height to 350px */
             margin: auto;
             background-color: #003264;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid #ddd;
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: space-between; /* Distribute space between children */
+        }
+        #chatbox h2 {
+            color: #fafafa; /* Set the color of the title */
         }
         #chatlogs {
             background-color: #fafafa;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding: 10px;
             border-radius: 10px;
-            height: 300px;
+            flex-grow: 1; /* Allow chatlogs to grow and fill available space */
             overflow: auto;
             border: 1px solid #ddd;
         }
         #userInput {
-            width: 60%;
+            width: calc(100% - 20px); /* Adjust width to consider padding */
             padding: 10px;
-            margin-right: 10px;
             border-radius: 5px;
             border: 1px solid #ddd;
+            margin-bottom: 15px; /* Add 15px margin below the input field */
         }
         button {
-            width: 30%;
+            width: calc(100% - 20px); /* Adjust width to consider padding, same as #userInput */
             padding: 10px;
+            margin: 0 auto; /* Center the button */
             background-color: #aa1f1d;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
+            display: block; /* Make the button a block element to allow margin auto to work */
         }
         button:hover {
             background-color: #971817;
         }
         .assistant-message {
             text-align: left;
-            margin-bottom: 10px;
             color: #333333;
+            margin-bottom: 15px; /* Add 15px margin below each joke message */
         }
+
         .assistant-message strong {
             color: #003264;
             font-weight: bold;
