@@ -4,118 +4,92 @@
     <title>Joke Assistant</title>
 
     <style>
-      body {
-           font-family: Arial, sans-serif;
-          /* Sets the default font family for the page */
-           background-color: #f4f4f4;
-          /* Light grey background color for the entire page */
-           color: #333333;
-          /* Default text color set to dark grey for readability */
-           text-align: center;
-          /* Centers text horizontally within the body */
-           padding: 20px;
-          /* Adds space around the content inside the body */
-      }
-       #chatbox {
-           width: 350px;
-          /* Fixed width of the chatbox */
-           height: 350px;
-          /* Fixed height of the chatbox */
-           margin: auto;
-          /* Centers the chatbox horizontally on the page */
-           background-color: #003264;
-          /* Dark blue background color for the chatbox */
-           padding: 20px;
-          /* Space inside the chatbox between content and its borders */
-           border-radius: 15px;
-          /* Rounded corners of the chatbox */
-           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          /* Subtle shadow around the chatbox */
-           border: 1px solid #ddd;
-          /* Thin grey border around the chatbox */
-           display: flex;
-          /* Enables flexbox layout inside the chatbox */
-           flex-direction: column;
-          /* Aligns children elements (like divs) in a column */
-           justify-content: space-between;
-          /* Distributes space evenly between child elements */
-      }
-       #chatbox h2 {
-           color: #fafafa;
-          /* Color of the title inside the chatbox */
-      }
-       #chatlogs {
-           background-color: #fafafa;
-          /* White background for the chatlogs area */
-           margin-bottom: 10px;
-          /* Space below the chatlogs area */
-           padding: 10px;
-          /* Internal spacing within the chatlogs area */
-           border-radius: 10px;
-          /* Rounded corners for chatlogs */
-           flex-grow: 1;
-          /* Allows chatlogs to expand and fill available vertical space */
-           overflow: auto;
-          /* Enables scrolling for overflow content */
-           border: 1px solid #ddd;
-          /* Thin border around chatlogs for definition */
-      }
-       #userInput {
-           width: calc(100% - 20px);
-          /* Width adjusted to account for padding */
-           padding: 10px;
-          /* Padding inside the input field */
-           border-radius: 5px;
-          /* Rounded corners for the input field */
-           border: 1px solid #ddd;
-          /* Thin border around the input field */
-           margin-bottom: 15px;
-          /* Space below the input field */
-      }
-       button {
-           width: calc(100% - 20px);
-          /* Width adjusted to match the userInput width */
-           padding: 10px;
-          /* Padding inside the button for better appearance */
-           margin: 0 auto;
-          /* Centers the button horizontally */
-           background-color: #aa1f1d;
-          /* Reddish background color for the button */
-           color: white;
-          /* White text color for the button */
-           border: none;
-          /* Removes the default border of the button */
-           border-radius: 5px;
-          /* Rounded corners for the button */
-           cursor: pointer;
-          /* Changes the cursor to a pointer when hovering over the button */
-           font-size: 1em;
-          /* Sets the font size of the button text */
-           display: block;
-          /* Ensures the button is a block-level element for margin auto to work */
-      }
-       button:hover {
-           background-color: #971817;
-          /* Darker shade of red on hover for the button */
-      }
-       .assistant-message {
-           text-align: left;
-          /* Aligns the text of the message to the left */
-           color: #333333;
-          /* Sets the text color of the message */
-           margin-bottom: 15px;
-          /* Space below each assistant message */
-      }
-       .assistant-message strong {
-           color: #003264;
-          /* Color for strong (bold) elements within the message */
-           font-weight: bold;
-          /* Makes text bold within strong tags */
-      }
-       .space-between {
-           margin-bottom: 5px;
-          /* Adds space below elements with this class */
-      }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333333;
+    text-align: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+#chatbox {
+    width: 350px;
+    height: 350px;
+    margin: auto;
+    background-color: #003264;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#chatbox h2 {
+    color: #fafafa;
+}
+
+#chatlogs {
+    background-color: #fafafa;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    flex-grow: 1;
+    overflow: auto;
+    border: 1px solid #ddd;
+}
+
+#userInput, button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#userInput {
+    margin-bottom: 15px;
+}
+
+button {
+    margin: 0 auto;
+    background-color: #aa1f1d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: block;
+}
+
+button:hover {
+    background-color: #971817;
+}
+
+.assistant-message {
+    text-align: left;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.assistant-message strong {
+    color: #003264;
+    font-weight: bold;
+}
+
+/* Mobile responsiveness */
+@media only screen and (max-width: 400px) {
+    #chatbox {
+        width: 100%; /* Adjust width for smaller screens */
+        height: auto; /* Optional: Adjust height for smaller screens */
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    #userInput, button {
+        width: calc(100% - 10px); /* Adjust width considering reduced padding */
+    }
+}
+
     </style>
   </head>
 
