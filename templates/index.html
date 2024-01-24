@@ -12,7 +12,7 @@ body {
     /* Set the text color */
     text-align: center;
     /* Center-align the text */
-    padding: 10x;
+    padding: 10px;
     /* Add padding around the content */
     margin: 0;
     /* Ensure there's no default margin */
@@ -156,25 +156,31 @@ button:hover {
         <input type="text" id="userInput" placeholder="Enter a topic for your liberal joke">
         <button onclick="getJoke()">Get Joke</button>
     </div>
-    <script>
+<script>
     function getJoke() {
         var userInput = document.getElementById("userInput").value;
+
+        // Clear the chatlogs before displaying a new joke
+        document.getElementById("chatlogs").innerHTML = '';
+
         fetch('https://joke-assistant-3ae8d04a836e.herokuapp.com/get-joke', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                userInput: userInput
-            }),
-        }).then(response => response.json()).then(data => {
+            body: JSON.stringify({ userInput: userInput }),
+        })
+        .then(response => response.json())
+        .then(data => {
             var message = "<div class='assistant-message'><strong>Topic:</strong> " + userInput + "<br><strong>Joke:</strong> " + data.joke + "</div>";
             document.getElementById("chatlogs").innerHTML += message;
-        }).catch((error) => {
+        })
+        .catch((error) => {
             console.error('Error:', error);
         });
     }
-    </script>
+</script>
+
 </body>
 
 </html>
