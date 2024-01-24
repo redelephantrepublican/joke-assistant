@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from openai import OpenAI
 import os
@@ -10,6 +10,11 @@ CORS(app)
 
 # Fetch the OpenAI API key from an environment variable
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+
+@app.route('/')
+def home():
+    # Render the index.html template
+    return render_template('index.html')
 
 @app.route('/get-joke', methods=['POST'])
 def get_joke():
