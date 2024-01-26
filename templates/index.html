@@ -4,7 +4,8 @@
 <head>
     <title>Liberal Joke Generator</title>
 
-<style>/* Styling for the <body> element */
+<style>
+/* Styling for the <body> element */
 body {
     font-family: Arial, sans-serif;
     /* Set the font family */
@@ -52,8 +53,19 @@ body {
 #chatbox h2 {
     color: #fafafa;
     /* Set the text color */
-    margin: 0 0 10px 0;
+    margin: 0 0 1px 0;
     /* Added margin to the title for spacing */
+}
+/* Styling for the (<p> instruction line) */
+.instruction {
+    color: #fafafa; 
+    /* Example: Sets the text color */
+    font-size: 16px; 
+    /* Example: Sets the font size */
+    margin: 10px 0; 
+    /* Example: Adds spacing above and below the paragraph */
+    text-align: center; 
+    /* Example: Centers the text */
 }
 /* Styling for the #chatlogs element */
 #chatlogs {
@@ -150,8 +162,9 @@ button:hover {
 <body>
     <div id="chatbox">
         <h2>Liberal Joke Generator</h2>
+        <p class="instruction">Pick any word and receive a joke about liberals.</p>
         <div id="chatlogs"></div>
-        <input type="text" id="userInput" placeholder="Enter a topic for your liberal joke">
+        <input type="text" id="userInput" placeholder="Enter a topic for your liberal joke.">
         <button onclick="getJoke()">Get Joke</button>
     </div>
 <script>
